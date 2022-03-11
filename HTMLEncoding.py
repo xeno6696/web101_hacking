@@ -10,3 +10,5 @@ print("BETTER:")
 a = u"äöüßáà"    
 print(a)
 print(a.encode('ascii', 'xmlcharrefreplace'))
+print(a.encode('latin-1', 'xmlcharrefreplace'))
+print(a.encode('utf-8', 'xmlcharrefreplace'))
