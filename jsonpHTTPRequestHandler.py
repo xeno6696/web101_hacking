@@ -1,16 +1,27 @@
 import sys
 import socketserver
+import pdb
 from http.server import SimpleHTTPRequestHandler
 
 class JsonpHTTPRequestHandler(SimpleHTTPRequestHandler):
     def end_headers(self): 
         # Include additional response headers here. CORS for example:       
-        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Origin', 'http://localhost:8000')
+        self.send_header('Access-Control-Allow-Headers','*')
         #self.send_header('Content-Type', 'application/json')    
         SimpleHTTPRequestHandler.end_headers(self)
     
     def do_OPTIONS(self):
+        #print(type(self))
+        #pdb.set_trace()
+        print(self.headers)
         self.send_response(200)
+        self.send_header('Access-Control-Allow-Methods', 'GET OPTIONS')
+        self.send_header('Origin','http://jsfiddle.net')
+        self.end_headers()
+        return
+        
+        
     
     
     
