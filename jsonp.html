@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>Oh HI!	
+		<title>Script testing for jsonp.</title>
+		<script>
+			function foo(message){
+				user = message['user'];
+				alert(user['email']);
+			};
+			// create an XHR object
+			const xhr = new XMLHttpRequest();
+
+			// listen for `onload` event
+			xhr.onload = () => {
+				// process response
+				if (xhr.status == 200) {
+					// parse JSON data
+					console.log(xhr.response);
+					let script = document.createElement('script');
+					script.innerHTML = xhr.response;
+					document.body.appendChild(script);
+				} else {
+					console.error('Error!');
+				}
+				
+			};
+
+			// create a `GET` request
+			xhr.open('GET', 'http://localhost:8000/jsonp.json');
+			xhr.setRequestHeader('Cache-Control', 'no-cache');
+			// send request
+			xhr.send();
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</HTML>
