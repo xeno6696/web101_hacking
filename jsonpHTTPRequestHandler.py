@@ -17,6 +17,7 @@ class JsonpHTTPRequestHandler(SimpleHTTPRequestHandler):
         print(self.headers)
         self.send_response(200)
         self.send_header('Access-Control-Allow-Methods', 'GET')
+        #The Origin here must match the Allow-Origin statement above.  
         self.send_header('Origin','fiddle.jshell.net')
         self.end_headers()
         return
