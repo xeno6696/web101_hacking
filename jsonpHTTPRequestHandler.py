@@ -6,7 +6,7 @@ from http.server import SimpleHTTPRequestHandler
 class JsonpHTTPRequestHandler(SimpleHTTPRequestHandler):
     def end_headers(self): 
         # Include additional response headers here. CORS for example:       
-        self.send_header('Access-Control-Allow-Origin', 'http://localhost:8000')
+        self.send_header('Access-Control-Allow-Origin', 'https://fiddle.jshell.net')
         self.send_header('Access-Control-Allow-Headers','*')
         #self.send_header('Content-Type', 'application/json')    
         SimpleHTTPRequestHandler.end_headers(self)
@@ -16,8 +16,8 @@ class JsonpHTTPRequestHandler(SimpleHTTPRequestHandler):
         #pdb.set_trace()
         print(self.headers)
         self.send_response(200)
-        self.send_header('Access-Control-Allow-Methods', 'GET OPTIONS')
-        self.send_header('Origin','http://jsfiddle.net')
+        self.send_header('Access-Control-Allow-Methods', 'GET')
+        self.send_header('Origin','fiddle.jshell.net')
         self.end_headers()
         return
         
