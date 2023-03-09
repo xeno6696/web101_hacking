@@ -12,3 +12,11 @@ print(a)
 print(a.encode('ascii', 'xmlcharrefreplace'))
 print(a.encode('latin-1', 'xmlcharrefreplace'))
 print(a.encode('utf-8', 'xmlcharrefreplace'))
+a= '这'
+print(a.encode('latin-1', 'xmlcharrefreplace'))
+print(a.encode('utf-8', 'xmlcharrefreplace'))
+
+b = '&#00e8;&#00bf;&#0099;'
+print(escape('这'))
+print(unescape(b))
+print(escape(a.encode('utf-8','xmlcharrefreplace')))
