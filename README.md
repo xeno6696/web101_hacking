@@ -1,0 +1,2 @@
+Hi, this is just a repository of some simple encoding scripts to teach the concepts behind byte representations of strings and then how to chain
+them together for things like WAF bypassing.  Nothing special, nothing fancy.  
